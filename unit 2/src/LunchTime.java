@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class LunchTime {
-	static int minutesUntilLunch(int hrs, int min) {
+	public static int minutesUntilLunch(int hrs, int min) {
 		return (13-hrs)*60 - min;
 	}
 	public static void main(String[] args) {
