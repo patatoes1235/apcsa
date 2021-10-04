@@ -129,7 +129,7 @@ public class PollDisplayPanel extends JPanel
 	private int countToDegrees(int count, int total)
 	{
 
-		return _________________________________________________ ;
+		return (int)((double)count/total*360+0.5);
 	}
 
 	// Draws a sector, centered at x, y, of radius r,
