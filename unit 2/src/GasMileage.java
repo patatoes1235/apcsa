@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class GasMileage
 {
-	public static double gasMileage(int milesCalc, double mpg)
+	public static double gallonsUsed(int milesCalc, double mpg)
 	{
 		return milesCalc/mpg;
 	}
@@ -23,7 +23,7 @@ public class GasMileage
 
 		input.close();
 
-		double gallons = gasMileage(miles, mpg);
+		double gallons = gallonsUsed(miles, mpg);
 		System.out.println("You used " + gallons + " gallons of gass");
 	}
 }
