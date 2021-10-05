@@ -1,7 +1,5 @@
 // Chapter 5 Question 27
 
-// ________________________________________________
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Container;
@@ -10,8 +8,7 @@ import javax.swing.JPanel;
 
 public class Rainbow extends JPanel
 {
-	// Declare skyColor:
-	// ________________________________________________
+	private final Color skyColor = Color.CYAN;
 
 	public Rainbow()
 	{
@@ -24,18 +21,13 @@ public class Rainbow extends JPanel
 		super.paintComponent(g);
 		int width = getWidth();
 		int height = getHeight();
-
-		// Declare and initialize local int variables xCenter, yCenter
-		// that represent the center of the rainbow rings:
-		// ________________________________________________
-
-		// Declare and initialize the radius of the large semicircle:
-		// ________________________________________________
-
+		int xCenter = width / 2;
+		int yCenter = 3 * height / 4;
+		int largeRadius = 1/4 * width;
 		g.setColor(Color.RED);
 
 		// Draw the large semicircle:
-		// g.fillArc( ______________ );
+		g.fillArc(xCenter / 2, yCenter /2, largeRadius, largeRadius, 0, 180);
 
 		// Declare and initialize the radii of the small and medium
 		// semicircles and draw them:
