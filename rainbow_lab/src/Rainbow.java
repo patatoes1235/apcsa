@@ -43,7 +43,6 @@ public class Rainbow extends JPanel
 		// so that the width of the middle (green) ring is the
 		// arithmetic mean of the widths of the red and magenta rings:
 		int skyRadius = largeRadius - 3*medRadius + 3*smallRadius;
-		System.out.println(skyRadius);
 
 		// Draw the sky-color semicircle:
 		g.setColor(skyColor);
