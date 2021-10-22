@@ -15,8 +15,8 @@ public class OvalBalloon extends Balloon {
 
 	public double distance(int x, int y)
 	{
-		double dx = 2*(x - getX());
-		double dy = y - getY();
+		double dx = (x - getX());
+		double dy = (y - getY())/2;
 		return Math.sqrt(dx*dx + dy*dy);
 	}
 
