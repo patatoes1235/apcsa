@@ -25,7 +25,7 @@ public class SpinningEnemy extends Enemy {
 
     public void move() {
     
-        angle = (angle + 0.1)/(720 * Math.PI);
+        angle +=0.1;
         
         Rectangle rect = getRectangle();
         
