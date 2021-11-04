@@ -1,9 +1,8 @@
 public class BestFit {
 	public static int bestFit(int size1, int size2, int space) {
-		int i = 3;
-		if (size1+ size2 <= space) return i;
+		if (size1+ size2 <= space) return 3;
 		if (size1 > space && size2 > space) return 0;
-		i--;
+		int i=2;
 		if (size1 > size2) i--;
 		return i;
 	}
