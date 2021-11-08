@@ -156,7 +156,6 @@ public class RollingDie extends Die
     int y1 = y + step - 1;
     int y2 = y + 3*step;
     int y3 = y + 5*step + 1;
-
     switch (numDots)
     {
       case 6:
@@ -171,6 +170,7 @@ public class RollingDie extends Die
         break;
       case 5:
         g.fillOval(x1, y3, dotSize, dotSize);
+        g.fillOval(x3, y1, dotSize, dotSize);
       case 3:
         g.fillOval (x1, y1, dotSize, dotSize);
         g.fillOval(x3, y3, dotSize, dotSize);
