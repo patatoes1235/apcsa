@@ -18,7 +18,7 @@ public class CardTester {
 			System.out.println(cards[i].rank());
 			System.out.println(cards[i].suit());
 			System.out.println(cards[i].pointValue());
-			System.out.println(cards[i].matches(cards[1]));
+			System.out.println(cards[i].matches(cards[1]) + "\n");
 		}
 	}
 }
