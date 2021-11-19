@@ -3,14 +3,15 @@ public class PrimeNumbers {
 	{
 		if (n <= 1)
 			return false;
-
+		else if (n ==2) return true;
 		int m = 2;
 
 		while (m * m <= n)
 		{
+			m+=2;
+			System.out.println(m);
 			if (n % m == 0)
 				return false;
-			m+=2;
 		}
 
 		return true;
