@@ -26,12 +26,12 @@ public class MyMath
   public static boolean isPerfect(int num)
   {
     int sum = 0;
-    for (int i =1; i<=(int)Math.sqrt(num); i++) {
+    for (int i =2; i<=(int)Math.sqrt(num); i++) {
       if (num % i ==0) {
-        sum += num/i;
+        sum += i + num/i;
       }
-
     }
+    return sum+1 == num;
   }
 
   /**
@@ -39,7 +39,15 @@ public class MyMath
    */
   public static void printFourPerfectNums()
   {
-
+    int i = 0;
+    int test = 2;
+    while (i<4) {
+      if (isPerfect(test)) {
+        System.out.println(test);
+        i++;
+      }
+      test++;
+    }
 
 
   }
@@ -49,7 +57,20 @@ public class MyMath
    */
   public static void printSixEvenPerfectNums()
   {
-
+    int test = 1;
+    int i =0;
+    while (i< 6) {
+      if (isPrime((int)Math.pow(2, n) - 1)) {
+        i++;
+        long perfectNum =
+        for (int j =2; j<=(int)Math.sqrt(test); i++) {
+          if (test % j ==0) {
+            test += j + test/j;
+          }
+        }
+      }
+      test++;
+    }
 
   }
 
