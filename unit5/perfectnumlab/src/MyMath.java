@@ -43,13 +43,12 @@ public class MyMath
     int test = 2;
     while (i<4) {
       if (isPerfect(test)) {
-        System.out.println(test);
+        System.out.print(test + "  ");
         i++;
       }
       test++;
     }
-
-
+    System.out.println();
   }
 
   /**
@@ -60,25 +59,23 @@ public class MyMath
     int test = 1;
     int i =0;
     while (i< 6) {
-      if (isPrime((int)Math.pow(2, n) - 1)) {
+      if (isPrime((int)Math.pow(2, test) - 1)) {
         i++;
-        long perfectNum =
-        for (int j =2; j<=(int)Math.sqrt(test); i++) {
-          if (test % j ==0) {
-            test += j + test/j;
-          }
+        int mprime = (int)Math.pow(2, test) - 1;
+        long perfectNum = (long)Math.pow(2,test-1) * mprime;
+        System.out.println("Mersenne Prime: "+ mprime + " Perfect Number: " + perfectNum);
         }
-      }
       test++;
+      }
     }
-
-  }
 
   /*********************************************************************/
 
   public static void main(String[] args)
   {
+    System.out.println("Perfect Numbers: ");
     printFourPerfectNums();
+    System.out.println("Even Perfect Numbers: ");
     printSixEvenPerfectNums();
   }
 }
