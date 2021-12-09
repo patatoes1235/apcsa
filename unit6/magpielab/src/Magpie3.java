@@ -10,6 +10,9 @@
  */
 public class Magpie3
 {
+	public Magpie3() {
+		findKeyword("I can't catch wild cats.", "cat", 0);
+	}
 	/**
 	 * Get a default greeting
 	 * 
@@ -30,6 +33,7 @@ public class Magpie3
 	public String getResponse(String statement)
 	{
 		String response = "";
+		statement = statement.trim();
 		if (statement.length() == 0)
 		{
 			response = "Say something, please.";
@@ -44,6 +48,24 @@ public class Magpie3
 				|| findKeyword(statement, "brother") >= 0)
 		{
 			response = "Tell me more about your family.";
+		}
+		else if (findKeyword(statement, "mrs.")>=0 || findKeyword(statement, "ms.")>=0 && findKeyword(statement, "mcmleod")>=0) {
+			response = "She sounds like a good teacher";
+		}
+		else if (findKeyword(statement, "mr.")>=0 && findKeyword(statement, "mccleod")>=0) {
+			response = "He sounds like a good teacher";
+		}
+		else if (findKeyword(statement, "cat") >=0 || findKeyword(statement, "dog")>=0) {
+			response = "Tell me more about your pets";
+		}
+		else if (findKeyword(statement, "yes") >=0) {
+			response = "I agree";
+		}
+		else if (findKeyword(statement, "hi") >=0) {
+			response = "Hello.";
+		}
+		else if (findKeyword(statement, "bye") >=0) {
+			response = "See you soon!";
 		}
 		else
 		{
@@ -71,6 +93,7 @@ public class Magpie3
 	private int findKeyword(String statement, String goal,
 			int startPos)
 	{
+		int count = 0;
 		String phrase = statement.trim().toLowerCase();
 		goal = goal.toLowerCase();
 
@@ -78,6 +101,7 @@ public class Magpie3
 		// the line below
 		int psn = phrase.indexOf(goal, startPos);
 
+		System.out.println("#: \tpsn \tBefore: \tAfter");
 		// Refinement--make sure the goal isn't part of a
 		// word
 		while (psn >= 0)
@@ -85,6 +109,8 @@ public class Magpie3
 			// Find the string of length 1 before and after
 			// the word
 			String before = " ", after = " ";
+
+
 			if (psn > 0)
 			{
 				before = phrase.substring(psn - 1, psn);
@@ -95,7 +121,8 @@ public class Magpie3
 						psn + goal.length(),
 						psn + goal.length() + 1);
 			}
-
+			System.out.println(count + "\t" + psn + "\t" + before + "\t" + after);
+			count++;
 			// If before and after aren't letters, we've
 			// found the word
 			if (((before.compareTo("a") < 0) || (before
@@ -110,6 +137,7 @@ public class Magpie3
 			// The last position didn't work, so let's find
 			// the next, if there is one.
 			psn = phrase.indexOf(goal, psn + 1);
+
 
 		}
 
@@ -142,7 +170,7 @@ public class Magpie3
 	 */
 	private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 6;
 		double r = Math.random();
 		int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -163,6 +191,8 @@ public class Magpie3
 		{
 			response = "You don't say.";
 		}
+		else if (whichResponse == 4) response = "Maybe";
+		else if (whichResponse == 5) response = "I'm sorry, I don't understand";
 
 		return response;
 	}
