@@ -12,7 +12,15 @@ public class LipogramAnalyzer {
 	}
 	public String allWordsWith(char letter) {
 		String returnString = "";
-		String[] newText = text.split(" ");
+		//replace newlines and tabs with spaces
+		String placeHolderText = text;
+		while (placeHolderText.indexOf("\n") >-1) {
+			placeHolderText.replace('\n', ' ');
+		}
+		while (placeHolderText.indexOf("\t") > -1) {
+			placeHolderText.replace('\t', ' ');
+		}
+		String[] newText = placeHolderText.split(" ");
 		for (int i = 0; i < newText.length; i++) {
 			if (newText[i].indexOf(letter) > -1 && !returnString.contains(newText[i])) {
 				returnString+=newText[i] + "\n";
