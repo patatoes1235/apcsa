@@ -14,12 +14,8 @@ public class LipogramAnalyzer {
 		String returnString = "";
 		//replace newlines and tabs with spaces
 		String placeHolderText = text;
-		while (placeHolderText.indexOf("\n") >-1) {
-			placeHolderText.replace('\n', ' ');
-		}
-		while (placeHolderText.indexOf("\t") > -1) {
-			placeHolderText.replace('\t', ' ');
-		}
+		placeHolderText = placeHolderText.replace('\n', ' ');
+		placeHolderText = placeHolderText.replace('\t', ' ');
 		String[] newText = placeHolderText.split(" ");
 		for (int i = 0; i < newText.length; i++) {
 			if (newText[i].indexOf(letter) > -1 && !returnString.contains(newText[i])) {
@@ -39,7 +35,6 @@ public class LipogramAnalyzer {
 		charValue = string.codePointAt(string.length()-1);
 		System.out.println(string + charValue);
 		while (charValue < 65 || (charValue > 90 && charValue < 97) || charValue > 122) {
-			System.out.println(string);
 			string = string.substring(0, string.length()-1);
 			charValue = string.codePointAt(string.length()-1);
 		}
