@@ -2,42 +2,30 @@ import java.util.Scanner;
 
 public class TTT {
 	private static char[][] board;
-	private static Scanner input = new Scanner(System.in);
+	private static final Scanner input = new Scanner(System.in);
 
 	/* Initialize the TTT board. */
-	public static void init_matrix(){
-		board = new char[][] {{'0', '1', '2'}, {'3', '4', '5'}, {'6', '7', '8'}};
+	public static void init(){
+		board = new char[][] {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
 	}
 
 	private static int[] translate(int input) {
-		return new int[] {input/3, input % 3};
+		return new int[] {(input-1)/3, (input-1) % 3};
 	}
 
-	/* Get player X's move. */
-	public static void get_playerX_move(){
-		System.out.print("Player X, select where you want to move (integer 0 - 8): ");
+	/* Get player's move. */
+	public static int[] getMove(char p){
+		System.out.print("Player " + p + ", select where you want to move (integer 1 - 9): ");
 		int[] loc = translate(input.nextInt());
 		System.out.println();
-		while (board[loc[0]][loc[1]] == 'X' || board[loc[0]][loc[1]] == 'O') {
+		while (board[loc[0]][loc[1]] == 'x' || board[loc[0]][loc[1]] == 'o') {
 			System.out.print("Position taken, please select another position: ");
 			loc = translate(input.nextInt());
 			System.out.println();
 		}
-		board[loc[0]][loc[1]] = 'X';
+		board[loc[0]][loc[1]] = p;
+		return loc;
 	}
-	/* Get player O's move. */
-	public static void get_playerO_move(){
-		System.out.print("Player O, select where you want to move (integer 0 - 8): ");
-		int[] loc = translate(input.nextInt());
-		System.out.println();
-		while (board[loc[0]][loc[1]] == 'X' || board[loc[0]][loc[1]] == 'O') {
-			System.out.print("Position taken, please select another position: ");
-			loc = translate(input.nextInt());
-			System.out.println();
-		}
-		board[loc[0]][loc[1]] = 'O';
-	}
-
 	public static void disp_board() {
 		for (int i = 0; i<3; i++) {
 			for (int j = 0; j< 3; j++) {
@@ -47,12 +35,59 @@ public class TTT {
 		}
 	}
 
-	public static char check() {
+	public static char check(final int[] loc) {
+		char p = board[loc[0]][loc[1]];
 
+		//checks vertically and horizontally at loc to determine whether loc created win
+		if ((board[loc[0]][(loc[1] + 1) % 3] == p && board[loc[0]][(loc[1] + 2 ) % 3] == p) ||
+				(board[(loc[0] + 1) % 3][loc[1]] == p && board[(loc[0] + 2) % 3][loc[1]] == p)
+		) return p;
+
+		//checks if loc created win on diags
+		if (loc[0] == loc[1] &&
+				board[(loc[0] + 1 ) % 3][(loc[1] + 1) % 3] == p && board[(loc[0] + 2) % 3][(loc[1] + 2) % 3] == p
+		) return p;
+		if (loc[0] % 2 == loc[1] % 2 && loc[0] % 2 !=0 &&
+				board[(loc[0] + 1 ) % 3][(loc[1] + 2) % 3] == p && board[(loc[0] + 2) % 3][(loc[1] + 1) % 3] == p
+		) return p;
+
+		return ' ';
 	}
-	public static void main(String[] args) {
-		init_matrix();
+	public static void play() {
+		for (int i = 0; i< 2; i++) {
+			disp_board();
+			getMove('x');
+			disp_board();
+			getMove('o');
+		}
+		for (int i = 0; i<8; i++) {
+			disp_board();
+			if (check(getMove('x')) =='x') {
+				disp_board();
+				System.out.println("X Wins!");
+				return;
+			}
+			disp_board();
+			if (check(getMove('o')) == 'o') {
+				disp_board();
+				System.out.println("O Wins! ");
+				return;
+			}
+		}
 		disp_board();
+		if (check(getMove('x')) =='x') {
+			disp_board();
+			System.out.println("X Wins!");
+		}
+		else {
+			disp_board();
+			System.out.println("Its a tie!");
+		}
+
 	}
 
+	public static void main(String[] args) {
+		init();
+		play();
+	}
 }
