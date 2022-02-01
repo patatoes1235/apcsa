@@ -14,7 +14,7 @@ public class CharMatrix
   public CharMatrix(int rows, int cols)
   {
     board = new char[rows][cols];
-    clearRect(0,0, board.length, board[0].length);
+    clearRect(0,0, rows-1, cols-1);
   }
 
   /**
@@ -24,7 +24,7 @@ public class CharMatrix
   public CharMatrix(int rows, int cols, char fill)
   {
     board = new char[rows][cols];
-    fillRect(0,0, board.length, board[0].length, fill);
+    fillRect(0,0, rows-1, cols-1, fill);
   }
 
   /**
@@ -75,8 +75,8 @@ public class CharMatrix
    */
   public void fillRect(int row0, int col0, int row1, int col1, char fill)
   {
-    for (int i = row0; i < row1; i++) {
-      for (int j = col0; j<col1; j++) {
+    for (int i = row0; i <= row1; i++) {
+      for (int j = col0; j<= col1; j++) {
         board[i][j] = fill;
       }
     }
