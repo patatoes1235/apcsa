@@ -13,4 +13,20 @@ public class Rectangle {
 	public Rectangle (int side) {
 		this(side, side);
 	}
+	public Rectangle() {
+		this (1,1);
+	}
+	public boolean isSquare() {
+		return width == height;
+	}
+	public void quadratize() {
+		width = (int)(Math.sqrt(width * height) + 0.5);
+		height = width;
+	}
+	public int getWidth() {
+		return width;
+	}
+	public int getHeight() {
+		return height;
+	}
 }

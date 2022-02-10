@@ -33,10 +33,14 @@ public class TestFractions
 
     Fraction difference = f1.subtract(f2);
     System.out.println(f1 + " - " + f2 + " = " + difference);
+    System.out.println(f1 + " - 2 = " + f1.subtract(2));
+
     Fraction quotient = f1.divide(f2);
     System.out.println(f1 + " / " + f2 + " = " + quotient);
-    Fraction q2 = f1.divide(f3);
-    System.out.println(f1 + " / " + f3 + " = " + q2);
+    System.out.println(f1 + " / 2 = " + f1.divide(2));
+    // Remove comments to test for error
+    //Fraction q2 = f1.divide(f3);
+    //System.out.println(f1 + " / " + f3 + " = " + q2);
     System.out.println();
   }
 

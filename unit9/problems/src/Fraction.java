@@ -64,6 +64,9 @@ public class Fraction
     int newDenom = denom * other.denom;
     return new Fraction(newNum, newDenom);
   }
+  public Fraction subtract(int i) {
+    return subtract(new Fraction(i, 1));
+  }
 
   // Returns the sum of this fraction and m
   public Fraction add(int m)
@@ -88,6 +91,9 @@ public class Fraction
     catch (Exception e) {
       throw new IllegalArgumentException("Division by 0");
     }
+  }
+  public Fraction divide(int i ) {
+    return new Fraction(num, i * denom);
   }
 
   // Returns the product of this fraction and m
