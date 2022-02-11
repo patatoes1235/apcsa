@@ -65,7 +65,19 @@ public class Vendor
         stock--;
         change = deposit - price;
       }
+      else {
+        change = deposit;
+        deposit = 0;
+      }
     }
+    else {
+      change = deposit;
+      deposit = 0;
+      getChange();
+      return false;
+    }
+    getChange();
+    return true;
   }
 
   /**
