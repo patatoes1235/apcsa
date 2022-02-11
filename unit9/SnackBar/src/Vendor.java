@@ -60,24 +60,18 @@ public class Vendor
    * @return true for a successful sale, false otherwise (boolean)
    */
   public boolean makeSale() {
-    if (stock > 0) {
-      if (deposit > price) {
-        stock--;
-        change = deposit - price;
-      }
-      else {
-        change = deposit;
-        deposit = 0;
-      }
+    if (stock > 0 && deposit >=price) {
+      stock--;
+      change = deposit - price;
+      deposit = 0;
+      return true;
     }
     else {
       change = deposit;
       deposit = 0;
-      getChange();
       return false;
     }
-    getChange();
-    return true;
+
   }
 
   /**
