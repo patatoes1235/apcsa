@@ -70,6 +70,7 @@ public class SnackBar extends JFrame
    */
   public void actionPerformed(ActionEvent e)
   {
+
     JPasswordField password = (JPasswordField)e.getSource();
     String word = new String(password.getPassword());
     password.setText("");
@@ -77,10 +78,15 @@ public class SnackBar extends JFrame
     {
       for (VendingMachine machine : machines)
         machine.reload();
-        
+
+      // Added for Snack Bar Part 2:
+      double amt = Vendor.getTotalSales();
+
       JOptionPane.showMessageDialog(null,
-        "Machines reloaded",
-        "Service", JOptionPane.INFORMATION_MESSAGE);
+              // Added for Snack Bar Part 2:
+              String.format("Total sales: $%.2f\n", amt) +
+                      "Machines reloaded",
+              "Service", JOptionPane.INFORMATION_MESSAGE);
     }
     else
     {
