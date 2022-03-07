@@ -13,11 +13,10 @@ public class DocumentIndex extends ArrayList<IndexEntry> {
 			IndexEntry temp = get(i);
 			if (word == temp.getWord()) {
 				temp.add(num);
-			}
-			else {
-				add(new IndexEntry(word));
-
+				return;
 			}
 		}
+		add(new IndexEntry(word));
+		get(size()-1).add(num);
 	}
 }
