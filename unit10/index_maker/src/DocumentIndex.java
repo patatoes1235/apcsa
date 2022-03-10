@@ -18,9 +18,6 @@ public class DocumentIndex extends ArrayList<IndexEntry> {
 		}
 		for (int i = 0; i< size(); i++) {
 			IndexEntry temp = get(i);
-			System.out.println(temp);
-			System.out.println(word);
-			System.out.println(temp.getWord().compareTo(word.toUpperCase()));
 			if (word.equalsIgnoreCase(temp.getWord())) {
 				temp.add(num);
 				return;
@@ -31,8 +28,6 @@ public class DocumentIndex extends ArrayList<IndexEntry> {
 				return;
 			}
 		}
-//		add(new IndexEntry(word));
-//		get(size() - 1).add(num);
 	}
 	public void addAllWords (String str, int num) {
 		String[] wordList = str.split("\\W+");
