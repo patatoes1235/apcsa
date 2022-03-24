@@ -2,10 +2,12 @@ public class Teacher extends Person {
 	private String subject;
 
 	public Teacher() {
+		System.out.println("Teacher: Default Constructor");
 		subject = "Computer Science";
 	}
 	public Teacher(String name, String st, String csz, String subj) {
 		super(name, st, csz);
+		System.out.println("Teacher: arg constructor");
 		subject = subj;
 	}
 

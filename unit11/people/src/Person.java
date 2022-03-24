@@ -2,11 +2,13 @@ public class Person {
 	private String name, st, cityStateZip;
 
 	public Person() {
+		System.out.println("Person: default constructor");
 		name = "John Doe";
 		st = "55 Main Street";
 		cityStateZip = "Anywhere, MA, 00001";
 	}
 	public Person(String n, String street, String csz) {
+		System.out.println("Person: 3 arg constructor");
 		name = n;
 		st = street;
 		cityStateZip = csz;
