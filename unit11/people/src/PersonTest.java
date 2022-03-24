@@ -28,7 +28,7 @@ public class PersonTest {
 			System.out.println(person);
 			if (person instanceof IntlStudent) {
 				IntlStudent student = (IntlStudent)person;
-				System.out.println("Intl student from " + student.getCountry());
+				System.out.println("Casting success! Intl student from " + student.getCountry());
 			}
 			else {
 				System.out.println("obj not of Intl student class, cannot be cast");
