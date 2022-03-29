@@ -16,10 +16,12 @@ public class Stars {
 		reversePrintTriangles(i-1);
 	}
 	public static void printTriangles(int i){
-
-
+		if (i ==0) return;
+		printTriangles(i-1);
+		printStars(i);
 	}
 	public static void main(String[] args) {
+		printTriangles(5);
 		reversePrintTriangles(5);
 	}
 }
